@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@keyframes subtleBounce {
+  0%, 100% {
+    transform: translateY(0) scale(1.06);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.1);
+  }
+}
+
+@keyframes subtlePulseGlow {
+  0%, 100% {
+    box-shadow: 0 10px 30px rgba(0, 165, 114, 0.5), 0 0 0 0 rgba(0, 165, 114, 0.5);
+  }
+  50% {
+    box-shadow: 0 16px 36px rgba(0, 165, 114, 0.75), 0 0 0 14px rgba(0, 165, 114, 0);
+  }
+}
+
+.hover-bounce-pulse:hover {
+  animation: subtleBounce 1s ease-in-out infinite, subtlePulseGlow 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.08) 20%,
+    rgba(255, 255, 255, 0.18) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 1.8s infinite;
+  content: '';
+}
+
