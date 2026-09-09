@@ -159,19 +159,30 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               );
             })}
 
-            <div className="pt-4 border-t border-[#222a3d] mt-2 flex flex-col gap-3">
+            <div className="pt-4 border-t border-[#222a3d] mt-2 flex flex-col gap-2.5">
               <a
                 href={`https://wa.me/${BUSINESS_INFO.rawPhone}?text=Hi%20Biswaranjan%2C%20I%20want%20a%20website%20for%20my%20local%20business.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-[#00a572] text-white font-semibold text-sm shadow-md"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#00a572] hover:bg-[#10b981] text-white font-semibold text-xs sm:text-sm shadow-md transition-colors"
               >
-                <MessageCircle className="w-5 h-5" />
-                <span>Chat on WhatsApp (+91 9124236518)</span>
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp Founder ({BUSINESS_INFO.phone})</span>
               </a>
-              <div className="flex items-center justify-between text-xs text-[#94a3b8] px-1">
-                <span>Direct Founder: Biswaranjan</span>
-                <span>Fast Reply &lt; 15 mins</span>
+
+              <a
+                href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20want%20to%20connect%20with%20NexusWeb%20team%20about%20a%20website.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#0891b2] hover:bg-[#06b6d4] text-white font-semibold text-xs sm:text-sm shadow-md transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp Team Member ({BUSINESS_INFO.teamPhone})</span>
+              </a>
+
+              <div className="flex items-center justify-between text-xs text-[#94a3b8] px-1 pt-1">
+                <span>Fast Replies &lt; 15 mins</span>
+                <span className="text-emerald-400">Available Mon – Sat</span>
               </div>
             </div>
           </div>

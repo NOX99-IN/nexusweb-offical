@@ -69,7 +69,7 @@ export const ContactSection: React.FC = () => {
 
             {/* Contact Method Cards */}
             <div className="flex flex-col gap-3.5">
-              {/* WhatsApp Card */}
+              {/* WhatsApp Card - Founder */}
               <a
                 id="contact-whatsapp-direct"
                 href={`https://wa.me/${BUSINESS_INFO.rawPhone}?text=Hi%20Biswaranjan%2C%20I%20want%20to%20discuss%20a%20website%20for%20my%20business.`}
@@ -81,14 +81,48 @@ export const ContactSection: React.FC = () => {
                   <MessageCircle className="w-6 h-6 fill-[#4edea3]/20" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <span className="block text-xs font-medium text-emerald-200">
-                    WhatsApp Direct (Recommended)
-                  </span>
+                  <div className="flex items-center justify-between">
+                    <span className="block text-xs font-medium text-emerald-200">
+                      WhatsApp (Founder - Biswaranjan)
+                    </span>
+                    <span className="text-[10px] font-bold text-[#4edea3] bg-[#00a572]/20 px-2 py-0.5 rounded-full border border-[#00a572]/40">
+                      Online Now
+                    </span>
+                  </div>
                   <span className="font-bold text-white text-base truncate block mt-0.5">
                     {BUSINESS_INFO.phone}
                   </span>
                   <span className="block text-xs font-semibold text-[#4edea3]">
-                    Instant replies within 15 mins
+                    Direct consultation &amp; custom quotes
+                  </span>
+                </div>
+              </a>
+
+              {/* WhatsApp Card - Team Member */}
+              <a
+                id="contact-team-whatsapp-direct"
+                href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20want%20to%20connect%20with%20the%20NexusWeb%20team%20about%20a%20website%20project.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-5 rounded-2xl bg-gradient-to-br from-[#0c4a6e]/85 via-[#0f172a]/95 to-[#155e75]/75 hover:from-[#0c4a6e] hover:to-[#0891b2] border border-cyan-500/40 hover:border-cyan-400/80 transition-all flex items-center gap-4 shadow-lg group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-cyan-500/20 text-[#67e8f9] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform border border-cyan-500/40">
+                  <MessageCircle className="w-6 h-6 fill-[#67e8f9]/20" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between">
+                    <span className="block text-xs font-medium text-cyan-200">
+                      WhatsApp (Team Member Support)
+                    </span>
+                    <span className="text-[10px] font-bold text-[#67e8f9] bg-[#0891b2]/20 px-2 py-0.5 rounded-full border border-cyan-500/40">
+                      Team Support
+                    </span>
+                  </div>
+                  <span className="font-bold text-white text-base truncate block mt-0.5">
+                    {BUSINESS_INFO.teamPhone}
+                  </span>
+                  <span className="block text-xs font-semibold text-[#67e8f9]">
+                    Project assistance &amp; quick queries
                   </span>
                 </div>
               </a>
@@ -177,16 +211,27 @@ export const ContactSection: React.FC = () => {
                     )}.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#00a572] hover:bg-[#10b981] text-white font-bold text-sm shadow-md"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#00a572] hover:bg-[#10b981] text-white font-bold text-sm shadow-md transition-all"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    <span>Open WhatsApp Chat Now</span>
+                    <span>Chat with Biswaranjan</span>
+                  </a>
+                  <a
+                    href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%20NexusWeb%20Team%2C%20I%20just%20submitted%20an%20inquiry%20for%20${encodeURIComponent(
+                      formData.businessNiche || 'my business'
+                    )}.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0891b2] hover:bg-[#06b6d4] text-white font-bold text-sm shadow-md transition-all"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Chat with Team Member (6370809336)</span>
                   </a>
                   <button
                     onClick={() => setSubmitted(false)}
                     className="px-4 py-3 rounded-xl bg-[#222a3d] hover:bg-[#2d3449] text-xs font-semibold text-[#c3c6d7] transition-colors"
                   >
-                    Submit Another Inquiry
+                    New Inquiry
                   </button>
                 </div>
               </div>

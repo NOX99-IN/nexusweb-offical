@@ -106,7 +106,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                   className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#00a572] hover:bg-[#10b981] text-white font-bold text-xs shadow-md transition-all"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Chat on WhatsApp</span>
+                  <span>Chat with Founder ({BUSINESS_INFO.phone})</span>
+                </a>
+                <a
+                  href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20am%20reaching%20out%20to%20the%20NexusWeb%20team%20about%20a%20website%20project.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow-md transition-all"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Chat with Team Member ({BUSINESS_INFO.teamPhone})</span>
                 </a>
                 <a
                   href={`mailto:${BUSINESS_INFO.email}`}

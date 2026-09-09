@@ -82,18 +82,29 @@ export const FAQ: React.FC = () => {
             </div>
             <div>
               <h4 className="text-sm sm:text-base font-bold text-white">Have a specific question about your niche?</h4>
-              <p className="text-xs text-[#94a3b8]">Ask Biswaranjan Pradhan directly on WhatsApp and get an answer within 15 minutes.</p>
+              <p className="text-xs text-[#94a3b8]">Chat with Biswaranjan Pradhan or our support team directly on WhatsApp within 15 minutes.</p>
             </div>
           </div>
-          <a
-            href={`https://wa.me/${BUSINESS_INFO.rawPhone}?text=Hi%20Biswaranjan%2C%20I%20have%20a%20question%20about%20getting%20a%20website.`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#00a572] hover:bg-[#10b981] text-white font-bold text-xs sm:text-sm transition-all shadow-md shrink-0"
-          >
-            <MessageCircle className="w-4 h-4" />
-            <span>Chat on WhatsApp</span>
-          </a>
+          <div className="flex flex-col sm:flex-row items-center gap-2.5 shrink-0">
+            <a
+              href={`https://wa.me/${BUSINESS_INFO.rawPhone}?text=Hi%20Biswaranjan%2C%20I%20have%20a%20question%20about%20getting%20a%20website.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#00a572] hover:bg-[#10b981] text-white font-bold text-xs transition-all shadow-md shrink-0"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Ask Biswaranjan</span>
+            </a>
+            <a
+              href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20have%20a%20question%20about%20NexusWeb%20website%20packages.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition-all shadow-md shrink-0"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Ask Team Member</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -140,7 +140,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 className="flex items-center gap-2 hover:text-[#4edea3] transition-colors"
               >
                 <MessageCircle className="w-4 h-4 text-[#4edea3]" />
-                <span>WhatsApp: {BUSINESS_INFO.phone}</span>
+                <span>WhatsApp (Founder): {BUSINESS_INFO.phone}</span>
+              </a>
+
+              <a
+                href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%20NexusWeb%20Team%2C%20I%20want%20to%20get%20a%20website%20for%20my%20local%20business.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-[#67e8f9] transition-colors"
+              >
+                <MessageCircle className="w-4 h-4 text-[#67e8f9]" />
+                <span>WhatsApp (Team Member): {BUSINESS_INFO.teamPhone}</span>
               </a>
 
               <a
