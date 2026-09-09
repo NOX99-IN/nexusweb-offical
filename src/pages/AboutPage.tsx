@@ -61,7 +61,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-950/80 via-indigo-900/60 to-purple-950/80 border border-blue-500/40 text-[#4edea3] text-xs sm:text-sm font-semibold mb-5 shadow-sm">
             <Sparkles className="w-4 h-4" />
-            <span>The Story Behind NexusWeb</span>
+            <span>The Story Behind Kalinga Pixel</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight max-w-4xl leading-tight">
@@ -72,7 +72,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           </h1>
 
           <p className="text-base sm:text-lg text-[#94a3b8] max-w-2xl mt-5 leading-relaxed">
-            Founded by <strong className="text-white">Biswaranjan Pradhan</strong>, NexusWeb was built on a simple premise: local business owners deserve high-converting websites without monthly agency retainers or technical headaches.
+            Founded by <strong className="text-white">Biswaranjan Pradhan</strong>, Kalinga Pixel was built on a simple premise: local business owners deserve high-converting websites without monthly agency retainers or technical headaches.
           </p>
         </div>
       </section>
@@ -109,7 +109,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                   <span>Chat with Founder ({BUSINESS_INFO.phone})</span>
                 </a>
                 <a
-                  href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20am%20reaching%20out%20to%20the%20NexusWeb%20team%20about%20a%20website%20project.`}
+                  href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20am%20reaching%20out%20to%20the%20Kalinga%20Pixel%20team%20about%20a%20website%20project.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow-md transition-all"
@@ -139,7 +139,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                 Over the past several years, I saw so many talented local doctors, restaurateurs, salon owners, and contractors get burned by traditional agencies. They paid huge monthly retainers, waited 4 months for a generic WordPress template, and when customers visited on phones, the site took 7 seconds to load.
               </p>
               <p className="text-sm sm:text-base text-[#94a3b8] leading-relaxed">
-                At NexusWeb, we operate differently. I work directly with you. Every website is custom-coded for sub-2-second speed, linked to Google Maps, and built around a 1-tap WhatsApp trigger. You pay once, own the entire codebase, and start receiving leads in days.
+                At Kalinga Pixel, we operate differently. I work directly with you. Every website is custom-coded for sub-2-second speed, linked to Google Maps, and built around a 1-tap WhatsApp trigger. You pay once, own the entire codebase, and start receiving leads in days.
               </p>
 
               <div className="mt-4 pt-4 border-t border-[#222a3d] flex flex-wrap items-center gap-6 text-xs text-[#dae2fd]">

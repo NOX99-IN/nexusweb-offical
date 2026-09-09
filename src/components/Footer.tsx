@@ -1,6 +1,7 @@
 import React from 'react';
 import { BUSINESS_INFO } from '../data';
 import { PageId } from '../types';
+import { KalingaPixelLogo } from './KalingaPixelLogo';
 import { MessageCircle, Mail, Phone, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 interface FooterProps {
@@ -22,14 +23,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="lg:col-span-5 flex flex-col gap-4">
             <button
               onClick={() => handleLink('home')}
-              className="flex items-center gap-3 text-left group cursor-pointer"
+              className="flex items-center text-left group cursor-pointer"
             >
-              <img
-                src={BUSINESS_INFO.logoUrl}
-                alt="NexusWeb Agency Logo"
-                className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
-              />
-              <span className="font-extrabold text-xl text-white tracking-tight">NexusWeb</span>
+              <KalingaPixelLogo size="md" variant="horizontal" showTagline={true} />
             </button>
             <p className="text-sm text-[#94a3b8] max-w-sm leading-relaxed">
               We design modern, lightning-fast websites that turn local searches into paying customers for clinics, restaurants, retail shops, and service contractors.
@@ -144,7 +140,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </a>
 
               <a
-                href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%20NexusWeb%20Team%2C%20I%20want%20to%20get%20a%20website%20for%20my%20local%20business.`}
+                href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%20Kalinga%20Pixel%20Team%2C%20I%20want%20to%20get%20a%20website%20for%20my%20local%20business.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-[#67e8f9] transition-colors"
@@ -180,7 +176,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Bottom Copyright & Trust */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#94a3b8]">
           <p>
-            © {new Date().getFullYear()} NexusWeb. Founded by Biswaranjan Pradhan. All rights reserved.
+            © {new Date().getFullYear()} Kalinga Pixel. Founded by Biswaranjan Pradhan. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-[#94a3b8]">
             <span className="flex items-center gap-1">

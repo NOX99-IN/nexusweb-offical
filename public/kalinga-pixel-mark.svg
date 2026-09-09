@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="markKGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0091ff" />
+      <stop offset="45%" stop-color="#0066ff" />
+      <stop offset="100%" stop-color="#004cd6" />
+    </linearGradient>
+    <linearGradient id="markKFold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0055d4" />
+      <stop offset="100%" stop-color="#003db3" />
+    </linearGradient>
+  </defs>
+
+  <!-- K Vertical Stem -->
+  <path d="M 22 28 L 48 28 L 48 172 L 22 172 Z" fill="url(#markKGrad)" />
+  
+  <!-- K Top Arm -->
+  <path d="M 48 95 L 102 28 L 136 28 L 74 104 Z" fill="url(#markKGrad)" />
+  
+  <!-- K Bottom Leg with 3D Overlap Fold -->
+  <path d="M 64 92 L 138 172 L 102 172 L 44 112 Z" fill="url(#markKFold)" />
+
+  <!-- P Body (Charcoal/Dark slate) -->
+  <path d="M 102 36 C 122 36 175 36 180 36 C 198 36 210 52 210 78 C 210 104 195 124 175 124 L 132 124 L 132 94 L 170 94 C 178 94 184 87 184 78 C 184 69 178 64 170 64 L 102 64 Z" fill="#1e293b" />
+  
+  <!-- P Cursor Pointer Arrow -->
+  <polygon points="144,72 166,82 158,85 163,95 158,97 153,87 148,91" fill="#0066ff" />
+</svg>

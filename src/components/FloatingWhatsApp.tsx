@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BUSINESS_INFO } from '../data';
+import { motion, AnimatePresence } from 'motion/react';
 import { MessageCircle, X, ChevronRight, UserCheck } from 'lucide-react';
 
 export const FloatingWhatsApp: React.FC = () => {
@@ -9,100 +10,109 @@ export const FloatingWhatsApp: React.FC = () => {
   return (
     <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2">
       {/* Contact Selection Panel */}
-      {isOpen && (
-        <div
-          id="whatsapp-contact-selector"
-          className="w-80 sm:w-84 bg-[#11192e] border border-[#2d3449] rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200"
-        >
-          {/* Header */}
-          <div className="p-4 bg-gradient-to-r from-[#064e3b] to-[#042f2e] text-white flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                <MessageCircle className="w-5 h-5 text-white" />
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            id="whatsapp-contact-selector"
+            initial={{ opacity: 0, scale: 0.95, y: 12, filter: 'blur(8px)' }}
+            animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, scale: 0.96, y: 10, filter: 'blur(6px)' }}
+            transition={{
+              duration: 0.28,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="w-80 sm:w-84 bg-[#11192e]/95 backdrop-blur-xl border border-[#2d3449] rounded-2xl shadow-2xl overflow-hidden animate-blur-in"
+          >
+            {/* Header */}
+            <div className="p-4 bg-gradient-to-r from-[#064e3b] to-[#042f2e] text-white flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                  <MessageCircle className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold leading-tight">Chat with Us on WhatsApp</h4>
+                  <p className="text-[11px] text-emerald-200">Select who you'd like to reach</p>
+                </div>
               </div>
-              <div>
-                <h4 className="text-sm font-bold leading-tight">Chat with Us on WhatsApp</h4>
-                <p className="text-[11px] text-emerald-200">Select who you'd like to reach</p>
-              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors cursor-pointer"
+                aria-label="Close WhatsApp options"
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors"
-              aria-label="Close WhatsApp options"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
 
-          {/* Contact options */}
-          <div className="p-3 space-y-2.5">
-            {/* 1. Founder Contact */}
-            <a
-              id="floating-whatsapp-founder"
-              href={`https://wa.me/${BUSINESS_INFO.rawPhone}?text=Hi%20Biswaranjan%2C%20I%20saw%20your%20website%20and%20want%20to%20get%20a%20website%20for%20my%20local%20business.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-white/[0.04] hover:bg-[#00a572]/15 border border-white/10 hover:border-[#00a572]/40 transition-all flex items-center gap-3 group"
-            >
-              <div className="w-10 h-10 rounded-xl bg-[#00a572]/20 text-[#4edea3] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform border border-[#00a572]/30">
-                <MessageCircle className="w-5 h-5 fill-[#4edea3]/20" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-white group-hover:text-[#4edea3] transition-colors">
-                    Biswaranjan Pradhan
+            {/* Contact options */}
+            <div className="p-3 space-y-2.5">
+              {/* 1. Founder Contact */}
+              <a
+                id="floating-whatsapp-founder"
+                href={`https://wa.me/${BUSINESS_INFO.rawPhone}?text=Hi%20Biswaranjan%2C%20I%20saw%20your%20website%20and%20want%20to%20get%20a%20website%20for%20my%20local%20business.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-white/[0.04] hover:bg-[#00a572]/15 border border-white/10 hover:border-[#00a572]/40 transition-all flex items-center gap-3 group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#00a572]/20 text-[#4edea3] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform border border-[#00a572]/30">
+                  <MessageCircle className="w-5 h-5 fill-[#4edea3]/20" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-white group-hover:text-[#4edea3] transition-colors">
+                      Biswaranjan Pradhan
+                    </span>
+                    <span className="text-[9px] font-bold text-[#4edea3] bg-[#00a572]/20 px-1.5 py-0.2 rounded border border-[#00a572]/30">
+                      Founder
+                    </span>
+                  </div>
+                  <span className="text-[11px] text-[#94a3b8] block">
+                    {BUSINESS_INFO.phone}
                   </span>
-                  <span className="text-[9px] font-bold text-[#4edea3] bg-[#00a572]/20 px-1.5 py-0.2 rounded border border-[#00a572]/30">
-                    Founder
+                  <span className="text-[10px] text-emerald-300 font-medium block">
+                    Direct quotes &amp; strategy
                   </span>
                 </div>
-                <span className="text-[11px] text-[#94a3b8] block">
-                  {BUSINESS_INFO.phone}
-                </span>
-                <span className="text-[10px] text-emerald-300 font-medium block">
-                  Direct quotes &amp; strategy
-                </span>
-              </div>
-              <ChevronRight className="w-4 h-4 text-[#94a3b8] group-hover:text-white transition-colors shrink-0" />
-            </a>
+                <ChevronRight className="w-4 h-4 text-[#94a3b8] group-hover:text-white transition-colors shrink-0" />
+              </a>
 
-            {/* 2. Team Member Contact */}
-            <a
-              id="floating-whatsapp-team"
-              href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20want%20to%20connect%20with%20the%20NexusWeb%20team%20about%20a%20website%20project.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-xl bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-500/40 transition-all flex items-center gap-3 group"
-            >
-              <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-[#67e8f9] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform border border-cyan-500/30">
-                <MessageCircle className="w-5 h-5 fill-[#67e8f9]/20" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-white group-hover:text-[#67e8f9] transition-colors">
-                    Team Member Support
+              {/* 2. Team Member Contact */}
+              <a
+                id="floating-whatsapp-team"
+                href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20want%20to%20connect%20with%20the%20Kalinga%20Pixel%20team%20about%20a%20website%20project.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-500/40 transition-all flex items-center gap-3 group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-[#67e8f9] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform border border-cyan-500/30">
+                  <MessageCircle className="w-5 h-5 fill-[#67e8f9]/20" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-white group-hover:text-[#67e8f9] transition-colors">
+                      Team Member Support
+                    </span>
+                    <span className="text-[9px] font-bold text-[#67e8f9] bg-cyan-500/20 px-1.5 py-0.2 rounded border border-cyan-500/30">
+                      Active
+                    </span>
+                  </div>
+                  <span className="text-[11px] text-[#94a3b8] block">
+                    {BUSINESS_INFO.teamPhone}
                   </span>
-                  <span className="text-[9px] font-bold text-[#67e8f9] bg-cyan-500/20 px-1.5 py-0.2 rounded border border-cyan-500/30">
-                    Active
+                  <span className="text-[10px] text-cyan-300 font-medium block">
+                    Client support &amp; inquiries
                   </span>
                 </div>
-                <span className="text-[11px] text-[#94a3b8] block">
-                  {BUSINESS_INFO.teamPhone}
-                </span>
-                <span className="text-[10px] text-cyan-300 font-medium block">
-                  Client support &amp; inquiries
-                </span>
-              </div>
-              <ChevronRight className="w-4 h-4 text-[#94a3b8] group-hover:text-white transition-colors shrink-0" />
-            </a>
-          </div>
+                <ChevronRight className="w-4 h-4 text-[#94a3b8] group-hover:text-white transition-colors shrink-0" />
+              </a>
+            </div>
 
-          <div className="px-4 py-2 bg-black/30 border-t border-[#222a3d] text-[10px] text-[#94a3b8] flex items-center justify-between">
-            <span>⚡ Typical reply &lt; 15 mins</span>
-            <span className="text-emerald-400 font-medium">Mon – Sat, 9 AM – 8 PM</span>
-          </div>
-        </div>
-      )}
+            <div className="px-4 py-2 bg-black/30 border-t border-[#222a3d] text-[10px] text-[#94a3b8] flex items-center justify-between">
+              <span>⚡ Typical reply &lt; 15 mins</span>
+              <span className="text-emerald-400 font-medium">Mon – Sat, 9 AM – 8 PM</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Friendly floating popup bubble */}
       {!isOpen && showTooltip && (

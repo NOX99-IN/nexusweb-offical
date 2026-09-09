@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 180" width="100%" height="100%">
+  <defs>
+    <linearGradient id="kpKGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0080ff" />
+      <stop offset="50%" stop-color="#0066ff" />
+      <stop offset="100%" stop-color="#004cd6" />
+    </linearGradient>
+    <linearGradient id="kpFoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0055d4" />
+      <stop offset="100%" stop-color="#003db3" />
+    </linearGradient>
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0066ff" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- KP Monogram Mark -->
+  <g transform="translate(10, 15)">
+    <!-- K Vertical Stem -->
+    <path d="M 12 18 L 32 18 L 32 132 L 12 132 Z" fill="url(#kpKGrad)" />
+    
+    <!-- K Top Diagonal Arm -->
+    <path d="M 32 68 L 74 18 L 100 18 L 52 74 Z" fill="url(#kpKGrad)" />
+    
+    <!-- K Bottom Fold / Lower Leg (with folded 3D ribbon shadow) -->
+    <path d="M 44 65 L 100 132 L 72 132 L 28 80 Z" fill="url(#kpFoldGrad)" filter="url(#subtleGlow)" />
+
+    <!-- P Outer Body (Charcoal/Dark Slate) -->
+    <path d="M 72 24 C 88 24 135 24 140 24 C 165 24 182 42 182 68 C 182 94 165 112 140 112 L 95 112 L 95 86 L 138 86 C 149 86 156 79 156 68 C 156 57 149 50 138 50 L 72 50 Z" fill="#0f172a" />
+    
+    <!-- P Inner Loop Arrow Cursor -->
+    <path d="M 104 60 L 128 72 L 120 75 L 126 87 L 121 89 L 115 77 L 109 82 Z" fill="#0066ff" />
+  </g>
+
+  <!-- Typography -->
+  <!-- KALINGA -->
+  <text x="215" y="72" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="54" font-weight="900" letter-spacing="1.5" fill="#ffffff">KALINGA</text>
+
+  <!-- PIXEL -->
+  <text x="215" y="132" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="54" font-weight="900" letter-spacing="4" fill="#0070f3">PIXEL</text>
+
+  <!-- Tagline Rule Lines and Text -->
+  <line x1="215" y1="156" x2="255" y2="156" stroke="#0070f3" stroke-width="2.5" stroke-linecap="round" />
+  <text x="265" y="160" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="4.5" fill="#94a3b8">WEBSITES FOR YOUR BUSINESS</text>
+  <line x1="500" y1="156" x2="535" y2="156" stroke="#0070f3" stroke-width="2.5" stroke-linecap="round" />
+</svg>

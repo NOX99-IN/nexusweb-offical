@@ -31,12 +31,12 @@ export const ContactSection: React.FC = () => {
 
     // Store in localStorage for lead reference
     try {
-      const existing = JSON.parse(localStorage.getItem('nexusweb_inquiries') || '[]');
+      const existing = JSON.parse(localStorage.getItem('kalinga_pixel_inquiries') || '[]');
       existing.unshift({
         ...formData,
         submittedAt: new Date().toISOString()
       });
-      localStorage.setItem('nexusweb_inquiries', JSON.stringify(existing));
+      localStorage.setItem('kalinga_pixel_inquiries', JSON.stringify(existing));
     } catch {
       // ignore
     }
@@ -101,7 +101,7 @@ export const ContactSection: React.FC = () => {
               {/* WhatsApp Card - Team Member */}
               <a
                 id="contact-team-whatsapp-direct"
-                href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20want%20to%20connect%20with%20the%20NexusWeb%20team%20about%20a%20website%20project.`}
+                href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20want%20to%20connect%20with%20the%20Kalinga%20Pixel%20team%20about%20a%20website%20project.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-5 rounded-2xl bg-gradient-to-br from-[#0c4a6e]/85 via-[#0f172a]/95 to-[#155e75]/75 hover:from-[#0c4a6e] hover:to-[#0891b2] border border-cyan-500/40 hover:border-cyan-400/80 transition-all flex items-center gap-4 shadow-lg group"
@@ -217,7 +217,7 @@ export const ContactSection: React.FC = () => {
                     <span>Chat with Biswaranjan</span>
                   </a>
                   <a
-                    href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%20NexusWeb%20Team%2C%20I%20just%20submitted%20an%20inquiry%20for%20${encodeURIComponent(
+                    href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%20Kalinga%20Pixel%20Team%2C%20I%20just%20submitted%20an%20inquiry%20for%20${encodeURIComponent(
                       formData.businessNiche || 'my business'
                     )}.`}
                     target="_blank"

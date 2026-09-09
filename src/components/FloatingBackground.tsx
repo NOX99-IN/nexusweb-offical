@@ -1,14 +1,64 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Isometric3DCube } from './Floating3DElements';
 
 export const FloatingBackground: React.FC = () => {
   return (
     <div
       aria-hidden="true"
       className="fixed inset-0 pointer-events-none overflow-hidden z-0 select-none"
+      style={{ perspective: 1200 }}
     >
       {/* Background Subtle Tech Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff0d_1px,transparent_1px)] [background-size:32px_32px] opacity-40" />
+
+      {/* 3D Floating Geometry - Isometric Cubes in space */}
+      <div className="absolute top-[12%] left-[4%] opacity-60 hidden md:block">
+        <Isometric3DCube size={46} color="blue" duration={18} />
+      </div>
+
+      <div className="absolute top-[22%] right-[5%] opacity-55 hidden md:block">
+        <Isometric3DCube size={54} color="cyan" duration={22} />
+      </div>
+
+      <div className="absolute top-[65%] left-[6%] opacity-40 hidden lg:block">
+        <Isometric3DCube size={42} color="emerald" duration={16} />
+      </div>
+
+      <div className="absolute top-[75%] right-[8%] opacity-45 hidden lg:block">
+        <Isometric3DCube size={48} color="purple" duration={20} />
+      </div>
+
+      {/* Floating 3D Glowing Rings */}
+      <motion.div
+        className="absolute top-[18%] right-[18%] w-24 h-24 rounded-full border border-[#0070f3]/30 shadow-[0_0_25px_rgba(0,112,243,0.3)] hidden lg:block"
+        style={{ transformStyle: 'preserve-3d' }}
+        animate={{
+          rotateX: [65, 75, 65],
+          rotateY: [0, 360],
+          y: [-10, 10, -10],
+        }}
+        transition={{
+          rotateY: { duration: 16, repeat: Infinity, ease: 'linear' },
+          rotateX: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
+          y: { duration: 5, repeat: Infinity, ease: 'easeInOut' },
+        }}
+      />
+
+      <motion.div
+        className="absolute top-[60%] right-[25%] w-32 h-32 rounded-full border border-[#10b981]/25 shadow-[0_0_30px_rgba(16,185,129,0.25)] hidden lg:block"
+        style={{ transformStyle: 'preserve-3d' }}
+        animate={{
+          rotateX: [-60, -70, -60],
+          rotateZ: [0, 360],
+          y: [12, -12, 12],
+        }}
+        transition={{
+          rotateZ: { duration: 20, repeat: Infinity, ease: 'linear' },
+          rotateX: { duration: 7, repeat: Infinity, ease: 'easeInOut' },
+          y: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
+        }}
+      />
 
       {/* Floating Orb 1 - Emerald / Mint (Top Left to Center) */}
       <motion.div

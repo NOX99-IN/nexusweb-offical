@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BUSINESS_INFO } from '../data';
 import { PageId } from '../types';
+import { KalingaPixelLogo } from './KalingaPixelLogo';
 import { MessageCircle, Menu, X, CheckCircle2 } from 'lucide-react';
 
 interface NavbarProps {
@@ -61,24 +62,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
           }}
           className="flex items-center gap-3 shrink-0 group text-left cursor-pointer"
         >
-          <div className="relative">
-            <img
-              src={BUSINESS_INFO.logoUrl}
-              alt="NexusWeb Agency Logo"
-              className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
-            />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-bold text-xl tracking-tight text-white flex items-center gap-1.5">
-              NexusWeb
-              <span className="inline-flex items-center gap-0.5 text-[10px] font-medium bg-[#00a572]/20 text-[#4edea3] px-1.5 py-0.5 rounded-full border border-[#00a572]/30">
-                <CheckCircle2 className="w-2.5 h-2.5" /> Direct
-              </span>
-            </span>
-            <span className="text-[11px] text-[#94a3b8] -mt-0.5 font-medium hidden sm:block">
-              Websites For Local Businesses
-            </span>
-          </div>
+          <KalingaPixelLogo size="md" variant="horizontal" />
+          <span className="hidden md:inline-flex items-center gap-0.5 text-[10px] font-medium bg-[#00a572]/20 text-[#4edea3] px-1.5 py-0.5 rounded-full border border-[#00a572]/30 shrink-0">
+            <CheckCircle2 className="w-2.5 h-2.5" /> Direct
+          </span>
         </a>
 
         {/* Desktop Navigation Links */}
@@ -171,7 +158,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               </a>
 
               <a
-                href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20want%20to%20connect%20with%20NexusWeb%20team%20about%20a%20website.`}
+                href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20want%20to%20connect%20with%20Kalinga%20Pixel%20team%20about%20a%20website.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#0891b2] hover:bg-[#06b6d4] text-white font-semibold text-xs sm:text-sm shadow-md transition-colors"

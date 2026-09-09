@@ -1,19 +1,19 @@
 import { PricingPackage, CaseStudy, ServiceItem, WhyChooseUsPillar, ProcessStep, FAQItem } from './types';
 
 export const BUSINESS_INFO = {
-  name: 'NexusWeb',
+  name: 'Kalinga Pixel',
   ownerName: 'Biswaranjan Pradhan',
   phone: '+91 9124236518',
   rawPhone: '919124236518',
   teamPhone: '+91 6370809336',
   rawTeamPhone: '916370809336',
-  teamMemberRole: 'NexusWeb Team Member & Support',
+  teamMemberRole: 'Kalinga Pixel Team Member & Support',
   email: 'biswaranjanpradhanbiswa86@gmail.com',
   workingHours: 'Mon – Sat, 9:00 AM – 8:00 PM IST',
   responseTime: 'Average < 15 mins during business hours',
   tagline: 'High-Converting Websites For Local Businesses Across India',
   cities: 'Mumbai, Delhi NCR, Bengaluru, Bhubaneswar, Hyderabad, Kolkata, Pune & all tier-1/tier-2 Indian cities',
-  logoUrl: 'https://lh3.googleusercontent.com/aida/AEtjO1Wjc1QTCKFHe1-YgcHddAirA0Kgc2X4LXzKR23MhsWajr07rHBfJirqmim1EX25PQ3RI4NiX8ZcAMfwIJOaQZSKb_6dSl5xl7hQX6OlcNwzQE8iBfqNUZdBE77V5I6UuJ_lqHFTk0kwN_nDh56WIkXQKNcrT5g2C4UO9u2cetwF-3hGJXsXJLXJR-1xLu6dD9teNQf3VX7ZPlSz-qRrxPlccNMJHvni1y8srrubvRAu5XIZ28kt8KxWwrn-',
+  logoUrl: '/kalinga-pixel-logo.svg',
 };
 
 export const PRICING_PACKAGES: PricingPackage[] = [

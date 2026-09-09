@@ -96,7 +96,7 @@ export const FAQ: React.FC = () => {
               <span>Ask Biswaranjan</span>
             </a>
             <a
-              href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20have%20a%20question%20about%20NexusWeb%20website%20packages.`}
+              href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20have%20a%20question%20about%20Kalinga%20Pixel%20website%20packages.`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition-all shadow-md shrink-0"

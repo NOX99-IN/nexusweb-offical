@@ -45,12 +45,12 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
       `• *Primary Goal*: ${encodeURIComponent(formData.primaryGoal || 'Get more customers & calls')}`;
 
     try {
-      const existing = JSON.parse(localStorage.getItem('nexusweb_inquiries') || '[]');
+      const existing = JSON.parse(localStorage.getItem('kalinga_pixel_inquiries') || '[]');
       existing.unshift({
         ...formData,
         submittedAt: new Date().toISOString()
       });
-      localStorage.setItem('nexusweb_inquiries', JSON.stringify(existing));
+      localStorage.setItem('kalinga_pixel_inquiries', JSON.stringify(existing));
     } catch {
       // ignore
     }
@@ -138,7 +138,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
               {/* WhatsApp Card - Team Member */}
               <a
                 id="contact-page-whatsapp-team"
-                href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20want%20to%20connect%20with%20the%20NexusWeb%20team%20about%20a%20website%20project.`}
+                href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%2C%20I%20want%20to%20connect%20with%20the%20Kalinga%20Pixel%20team%20about%20a%20website%20project.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-5 rounded-2xl bg-[#171f33] hover:bg-[#1e273f] border border-[#222a3d] hover:border-cyan-500/50 transition-all flex items-center gap-4 shadow-sm group"
@@ -260,7 +260,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                     <span>Chat with Biswaranjan</span>
                   </a>
                   <a
-                    href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%20NexusWeb%20Team%2C%20I%20just%20submitted%20an%20inquiry%20for%20${encodeURIComponent(
+                    href={`https://wa.me/${BUSINESS_INFO.rawTeamPhone}?text=Hi%20Kalinga%20Pixel%20Team%2C%20I%20just%20submitted%20an%20inquiry%20for%20${encodeURIComponent(
                       formData.businessNiche || 'my business'
                     )}.`}
                     target="_blank"
