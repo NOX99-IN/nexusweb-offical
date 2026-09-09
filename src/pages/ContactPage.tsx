@@ -58,7 +58,11 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-      window.open(`https://wa.me/${BUSINESS_INFO.rawPhone}?text=${message}`, '_blank');
+      try {
+        window.open(`https://wa.me/${BUSINESS_INFO.rawPhone}?text=${message}`, '_blank');
+      } catch {
+        // Handled gracefully by the visible confirmation screen
+      }
     }, 400);
   };
 

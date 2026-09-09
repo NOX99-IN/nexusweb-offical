@@ -1,9 +1,9 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 interface ThreeDTiltProps {
   children: React.ReactNode;
   className?: string;
-  maxTilt?: number; // max tilt in degrees (default 12)
+  maxTilt?: number; // max tilt in degrees (default 10)
   glare?: boolean;
   scale?: number; // scale on hover (default 1.02)
   perspective?: number; // default 1000px
@@ -18,69 +18,75 @@ export const ThreeDTilt: React.FC<ThreeDTiltProps> = ({
   perspective = 1000,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [transform, setTransform] = useState<string>('rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)');
-  const [glarePosition, setGlarePosition] = useState<{ x: number; y: number; opacity: number }>({
-    x: 50,
-    y: 50,
-    opacity: 0,
-  });
-  const [isHovered, setIsHovered] = useState(false);
+  const glareRef = useRef<HTMLDivElement>(null);
+  const rafId = useRef<number | null>(null);
 
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
+  useEffect(() => {
+    return () => {
+      if (rafId.current !== null) {
+        cancelAnimationFrame(rafId.current);
+      }
+    };
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Only apply on hoverable devices (mouse/pointer)
+    if (window.matchMedia && !window.matchMedia('(hover: hover)').matches) return;
+    if (!cardRef.current) return;
+
+    if (rafId.current !== null) {
+      cancelAnimationFrame(rafId.current);
+    }
+
+    const rect = cardRef.current.getBoundingClientRect();
+    const clientX = e.clientX - rect.left;
+    const clientY = e.clientY - rect.top;
+
+    rafId.current = requestAnimationFrame(() => {
       if (!cardRef.current) return;
-      const rect = cardRef.current.getBoundingClientRect();
-      const clientX = e.clientX - rect.left;
-      const clientY = e.clientY - rect.top;
-
       const xPercent = (clientX / rect.width) * 100;
       const yPercent = (clientY / rect.height) * 100;
 
-      // Calculate tilt angles:
-      // Moving mouse right tilts around Y axis (rotateY positive)
-      // Moving mouse down tilts around X axis (rotateX negative)
       const tiltX = ((yPercent - 50) / 50) * -maxTilt;
       const tiltY = ((xPercent - 50) / 50) * maxTilt;
 
-      setTransform(
-        `perspective(${perspective}px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(
-          2
-        )}deg) scale3d(${scale}, ${scale}, ${scale})`
-      );
+      cardRef.current.style.transform = `perspective(${perspective}px) rotateX(${tiltX.toFixed(
+        2
+      )}deg) rotateY(${tiltY.toFixed(2)}deg) scale3d(${scale}, ${scale}, ${scale})`;
+      cardRef.current.style.transition = 'transform 0.08s ease-out';
 
-      if (glare) {
-        setGlarePosition({
-          x: xPercent,
-          y: yPercent,
-          opacity: 0.22,
-        });
+      if (glare && glareRef.current) {
+        glareRef.current.style.opacity = '0.22';
+        glareRef.current.style.background = `radial-gradient(circle 280px at ${xPercent.toFixed(
+          1
+        )}% ${yPercent.toFixed(1)}%, rgba(255, 255, 255, 0.4), transparent 80%)`;
       }
-    },
-    [maxTilt, glare, scale, perspective]
-  );
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
+    });
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
-    setTransform(`perspective(${perspective}px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`);
-    setGlarePosition((prev) => ({ ...prev, opacity: 0 }));
+    if (rafId.current !== null) {
+      cancelAnimationFrame(rafId.current);
+    }
+    if (cardRef.current) {
+      cardRef.current.style.transform = `perspective(${perspective}px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      cardRef.current.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+    }
+    if (glare && glareRef.current) {
+      glareRef.current.style.opacity = '0';
+      glareRef.current.style.transition = 'opacity 0.4s ease';
+    }
   };
 
   return (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
-        transform,
+        transform: `perspective(${perspective}px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`,
         transformStyle: 'preserve-3d',
-        transition: isHovered
-          ? 'transform 0.1s cubic-bezier(0.2, 0, 0, 1)'
-          : 'transform 0.5s cubic-bezier(0.2, 0, 0, 1)',
+        transition: 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)',
       }}
       className={`relative will-change-transform ${className}`}
     >
@@ -89,11 +95,10 @@ export const ThreeDTilt: React.FC<ThreeDTiltProps> = ({
       {/* 3D Specular Glare Layer */}
       {glare && (
         <div
+          ref={glareRef}
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 rounded-[inherit] overflow-hidden transition-opacity duration-300"
+          className="pointer-events-none absolute inset-0 rounded-[inherit] overflow-hidden opacity-0 transition-opacity duration-300"
           style={{
-            opacity: glarePosition.opacity,
-            background: `radial-gradient(circle 280px at ${glarePosition.x}% ${glarePosition.y}%, rgba(255, 255, 255, 0.4), transparent 80%)`,
             mixBlendMode: 'overlay',
           }}
         />

@@ -2,7 +2,7 @@ import React from 'react';
 import { BUSINESS_INFO } from '../data';
 import { PageId } from '../types';
 import { KalingaPixelLogo } from './KalingaPixelLogo';
-import { MessageCircle, Mail, Phone, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { MessageCircle, Mail, Phone, CheckCircle2, ShieldCheck, MapPin, Search, Globe, Sparkles } from 'lucide-react';
 
 interface FooterProps {
   onNavigate?: (page: PageId, anchorId?: string) => void;
@@ -170,6 +170,49 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span className="font-semibold text-white block mb-0.5">Hours:</span>
               {BUSINESS_INFO.workingHours}
             </div>
+          </div>
+        </div>
+
+        {/* Structured SEO Keywords & Local Service Areas Section */}
+        <div className="py-8 border-b border-[#1e273f] text-xs text-[#94a3b8] space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#93c5fd] flex items-center gap-1.5">
+              <Search className="w-3.5 h-3.5 text-[#4edea3]" /> Top Local Search Keywords &amp; Web Services
+            </h3>
+            <span className="text-[11px] text-[#64748b]">Google Maps Local SEO Verified • Sub-2s Speed Optimization</span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {[
+              'Website Design Company in Bhubaneswar',
+              'Web Development Agency Odisha',
+              'Affordable Website Designer Near Me',
+              'Local Business Website Developer',
+              'Google Business Profile & Maps SEO',
+              'Clinic & Doctor Website Design',
+              'Restaurant & Cafe Food Menu Website',
+              'Gym & Fitness Studio Web Development',
+              'Luxury Architecture & Interior Design Websites',
+              'One-Tap WhatsApp Inbound Lead Integration',
+              'Mobile First Responsive Web Design (< 2s Speed)',
+              'Zero Recurring Retainer Website Packages (₹7k – ₹20k)'
+            ].map((keyword, i) => (
+              <span
+                key={i}
+                className="px-2.5 py-1 rounded-lg bg-[#131b2e]/80 border border-[#222a3d] text-[#c3c6d7] text-[11px] hover:border-[#38bdf8]/40 hover:text-white transition-colors"
+              >
+                {keyword}
+              </span>
+            ))}
+          </div>
+
+          <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-[11px] text-[#94a3b8]">
+            <span className="font-semibold text-white flex items-center gap-1 shrink-0">
+              <MapPin className="w-3 h-3 text-[#4edea3]" /> Key Service Locations:
+            </span>
+            <span className="leading-relaxed">
+              Bhubaneswar, Cuttack, Puri, Rourkela, Berhampur, Sambalpur, Balasore (Odisha), Mumbai, Delhi NCR, Bengaluru, Hyderabad, Kolkata, Pune &amp; pan-India.
+            </span>
           </div>
         </div>
 

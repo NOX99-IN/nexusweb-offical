@@ -4,6 +4,10 @@ import { MessageCircle, ArrowDown, Star, CheckCircle2, ShieldCheck, Sparkles, Za
 import { ThreeDTilt } from './ThreeDTilt';
 import { ScrollDownIndicator } from './ScrollDownIndicator';
 import { Floating3DBadge, Isometric3DCube } from './Floating3DElements';
+import { DeviceShowcase3D } from './DeviceShowcase3D';
+import { TextReveal } from './TextReveal';
+import { MagneticButton } from './MagneticButton';
+import { FloatingPixels } from './FloatingPixels';
 
 interface HeroProps {
   onSelectCaseStudy?: (id: string) => void;
@@ -11,7 +15,10 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = () => {
   return (
-    <section id="home" className="relative w-full overflow-hidden bg-[#0b1326] pt-12 pb-16 lg:pt-16 lg:pb-24">
+    <section id="home" className="relative w-full overflow-hidden bg-[#0b1326] pt-10 pb-16 lg:pt-14 lg:pb-24">
+      {/* Floating Pixels for Kalinga Pixel Brand Atmosphere */}
+      <FloatingPixels />
+
       {/* Background Decorative Gradients */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_-10%,rgba(37,99,235,0.18),transparent)] pointer-events-none" />
       <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-[#00a572]/10 blur-3xl pointer-events-none" />
@@ -36,50 +43,54 @@ export const Hero: React.FC<HeroProps> = () => {
           <span>⚡ Websites Delivered in 3-5 Days • 100% Mobile Ready</span>
         </div>
 
-        {/* Main Display Headline with 3D Perspective */}
+        {/* Main Display Headline with Text Reveal Animation */}
         <h1
           id="hero-main-title"
           className="text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.15] font-extrabold text-[#dae2fd] max-w-4xl tracking-tight mb-5 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
         >
-          Get More Local Customers With A{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#93c5fd] via-[#60a5fa] to-[#b4c5ff]">
-            Fast, High-Converting
-          </span>{' '}
-          Website
+          <TextReveal
+            text="Get More Local Customers With A Fast, High-Converting Website"
+            highlightWords={['Fast,', 'High-Converting']}
+            highlightClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#93c5fd] via-[#60a5fa] to-[#b4c5ff]"
+          />
         </h1>
 
-        {/* Subtitle */}
-        <p className="text-base sm:text-lg lg:text-xl text-[#94a3b8] max-w-2xl mb-8 leading-relaxed">
-          We design custom, mobile-friendly websites that rank on Google Maps and turn local visitors into paying customers. Simple pricing, zero technical headaches.
+        {/* Subtitle with Primary SEO Keywords */}
+        <p className="text-base sm:text-lg lg:text-xl text-[#94a3b8] max-w-3xl mb-8 leading-relaxed">
+          Premier website design company &amp; web developer in Bhubaneswar serving businesses across India. We build custom, mobile-first websites that rank #1 on Google Maps and turn local searchers into direct WhatsApp leads. Simple one-time pricing, zero recurring agency fees.
         </p>
 
-        {/* Primary Call-to-Actions */}
+        {/* Primary Call-to-Actions with Magnetic Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mb-10">
-          <a
-            id="hero-primary-whatsapp-btn"
-            href={`https://wa.me/${BUSINESS_INFO.rawPhone}?text=Hi%20Biswaranjan%2C%20I%20want%20to%20get%20more%20customers%20with%20a%20website%20for%20my%20local%20business.`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#00a572] hover:bg-[#10b981] text-white font-bold text-base sm:text-lg transition-all shadow-[0_12px_32px_-6px_rgba(0,165,114,0.55)] hover:-translate-y-1 hover:shadow-[0_18px_36px_-6px_rgba(0,165,114,0.7)] active:translate-y-0"
-          >
-            <MessageCircle className="w-6 h-6 fill-white/20" />
-            <span>Chat on WhatsApp (+91 9124236518)</span>
-          </a>
+          <MagneticButton strength={12}>
+            <a
+              id="hero-primary-whatsapp-btn"
+              href={`https://wa.me/${BUSINESS_INFO.rawPhone}?text=Hi%20Biswaranjan%2C%20I%20want%20to%20get%20more%20customers%20with%20a%20website%20for%20my%20local%20business.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#00a572] hover:bg-[#10b981] text-white font-bold text-base sm:text-lg transition-all shadow-[0_12px_32px_-6px_rgba(0,165,114,0.55)] hover:shadow-[0_18px_36px_-6px_rgba(0,165,114,0.7)] active:scale-98"
+            >
+              <MessageCircle className="w-6 h-6 fill-white/20" />
+              <span>Chat on WhatsApp (+91 9124236518)</span>
+            </a>
+          </MagneticButton>
 
-          <a
-            id="hero-secondary-pricing-btn"
-            href="#pricing-section"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-[#171f33]/90 hover:bg-[#222a3d] text-[#dae2fd] border border-[#2d3449] hover:border-[#38bdf8]/50 font-semibold text-base transition-all hover:-translate-y-1 shadow-lg hover:shadow-[#0070f3]/20"
-          >
-            <span>View Packages &amp; Pricing</span>
-            <ArrowDown className="w-4 h-4 text-[#93c5fd]" />
-          </a>
+          <MagneticButton strength={10}>
+            <a
+              id="hero-secondary-pricing-btn"
+              href="#pricing-section"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-[#171f33]/90 hover:bg-[#222a3d] text-[#dae2fd] border border-[#2d3449] hover:border-[#38bdf8]/50 font-semibold text-base transition-all shadow-lg hover:shadow-[#0070f3]/20"
+            >
+              <span>View Packages &amp; Pricing</span>
+              <ArrowDown className="w-4 h-4 text-[#93c5fd]" />
+            </a>
+          </MagneticButton>
         </div>
 
         {/* Social Proof Bar */}
         <div
           id="hero-social-proof-bar"
-          className="flex flex-col sm:flex-row items-center gap-3 py-2.5 px-6 rounded-2xl bg-gradient-to-r from-indigo-950/80 via-slate-900/90 to-purple-950/80 border border-indigo-500/30 shadow-[0_8px_25px_rgba(30,27,75,0.4)] mb-12 hover:border-indigo-400/50 transition-all"
+          className="flex flex-col sm:flex-row items-center gap-3 py-2.5 px-6 rounded-2xl bg-gradient-to-r from-indigo-950/80 via-slate-900/90 to-purple-950/80 border border-indigo-500/30 shadow-[0_8px_25px_rgba(30,27,75,0.4)] mb-8 hover:border-indigo-400/50 transition-all"
         >
           <div className="flex items-center gap-1 text-[#f59e0b]">
             {[...Array(5)].map((_, i) => (
@@ -93,7 +104,7 @@ export const Hero: React.FC<HeroProps> = () => {
           </p>
         </div>
 
-        {/* Hero Visual Mockup Grid with 3D Depth & Floating Elements */}
+        {/* 3D Laptop + Smartphone Stage with Browser Mockup & Website Scroll Animation */}
         <div className="w-full relative mt-2">
           {/* Floating 3D Badges anchored to grid edges */}
           <Floating3DBadge
@@ -136,8 +147,12 @@ export const Hero: React.FC<HeroProps> = () => {
             yOffset={10}
           />
 
+          {/* 3D Laptop & Smartphone Showcase */}
+          <DeviceShowcase3D />
+
+          {/* Category Cards Showcase */}
           <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-left"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-left mt-6"
             style={{ perspective: 1200 }}
           >
             {HERO_SHOWCASE.map((item, index) => {
@@ -166,6 +181,8 @@ export const Hero: React.FC<HeroProps> = () => {
                         alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
                         loading="eager"
+                        decoding="async"
+                        referrerPolicy="no-referrer"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-70" />
                       <span

@@ -8,7 +8,7 @@ export const FloatingWhatsApp: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(true);
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2">
+    <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-2.5">
       {/* Contact Selection Panel */}
       <AnimatePresence>
         {isOpen && (
@@ -36,7 +36,7 @@ export const FloatingWhatsApp: React.FC = () => {
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors cursor-pointer"
+                className="relative w-8 h-8 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors cursor-pointer touch-manipulation before:absolute before:-inset-2 before:content-['']"
                 aria-label="Close WhatsApp options"
               >
                 <X className="w-4 h-4" />
@@ -116,13 +116,13 @@ export const FloatingWhatsApp: React.FC = () => {
 
       {/* Friendly floating popup bubble */}
       {!isOpen && showTooltip && (
-        <div className="relative p-3 max-w-[270px] bg-[#171f33] border border-[#2d3449] rounded-2xl shadow-2xl text-xs text-[#dae2fd] animate-in fade-in slide-in-from-bottom-2 duration-300">
+        <div className="relative p-3.5 max-w-[280px] bg-[#171f33] border border-[#2d3449] rounded-2xl shadow-2xl text-xs text-[#dae2fd] animate-in fade-in slide-in-from-bottom-2 duration-300">
           <button
             onClick={() => setShowTooltip(false)}
-            className="absolute -top-2 -left-2 w-5 h-5 bg-[#222a3d] rounded-full flex items-center justify-center text-[#94a3b8] hover:text-white border border-[#434655]"
+            className="absolute -top-2 -left-2 w-6 h-6 bg-[#222a3d] rounded-full flex items-center justify-center text-[#94a3b8] hover:text-white border border-[#434655] cursor-pointer touch-manipulation before:absolute before:-inset-2 before:content-['']"
             aria-label="Dismiss message"
           >
-            <X className="w-3 h-3" />
+            <X className="w-3.5 h-3.5" />
           </button>
           <div className="flex items-center gap-2 mb-1">
             <span className="w-2 h-2 rounded-full bg-[#4edea3] animate-ping" />
@@ -133,7 +133,7 @@ export const FloatingWhatsApp: React.FC = () => {
             Chat with Founder <strong>Biswaranjan</strong> or our <strong>Team Member</strong> directly on WhatsApp!
           </p>
           <div className="flex items-center gap-1.5 pt-1 border-t border-[#222a3d] text-[10px] text-emerald-300 font-medium">
-            <UserCheck className="w-3 h-3 text-[#4edea3]" />
+            <UserCheck className="w-3.5 h-3.5 text-[#4edea3]" />
             <span>2 Direct WhatsApp Lines Available</span>
           </div>
         </div>
@@ -147,14 +147,14 @@ export const FloatingWhatsApp: React.FC = () => {
           setIsOpen(!isOpen);
           setShowTooltip(false);
         }}
-        className="group hover-bounce-pulse relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#00a572] hover:bg-[#10b981] text-white shadow-[0_10px_30px_rgba(0,165,114,0.5)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+        className="group hover-bounce-pulse relative flex items-center justify-center w-16 h-16 sm:w-16 sm:h-16 rounded-full bg-[#00a572] hover:bg-[#10b981] text-white shadow-[0_10px_30px_rgba(0,165,114,0.55)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer touch-manipulation before:absolute before:-inset-3 sm:before:-inset-1.5 before:content-['']"
         aria-label="Toggle WhatsApp contact channels"
       >
         <span className="absolute inset-0 rounded-full bg-[#00a572] animate-ping opacity-30 pointer-events-none group-hover:opacity-50" />
         {isOpen ? (
-          <X className="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-300 rotate-90" />
+          <X className="w-8 h-8 transition-transform duration-300 rotate-90" />
         ) : (
-          <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 fill-white/20 transition-transform duration-300 group-hover:scale-110" />
+          <MessageCircle className="w-8 h-8 fill-white/20 transition-transform duration-300 group-hover:scale-110" />
         )}
       </button>
     </div>

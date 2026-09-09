@@ -44,8 +44,12 @@ export const ContactSection: React.FC = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-      window.open(`https://wa.me/${BUSINESS_INFO.rawPhone}?text=${message}`, '_blank');
-    }, 750);
+      try {
+        window.open(`https://wa.me/${BUSINESS_INFO.rawPhone}?text=${message}`, '_blank');
+      } catch {
+        // Handled gracefully by the visible interactive confirmation screen
+      }
+    }, 400);
   };
 
   return (
